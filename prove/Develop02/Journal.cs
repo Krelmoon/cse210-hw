@@ -7,6 +7,7 @@ public class Journal
     public List<Entry> _entries = new List<Entry>();
     public string userInput;
     public int number;
+
     do
     {
         Console.WriteLine("Please select one of the following choices: ");
@@ -43,7 +44,7 @@ public class Journal
         {
             Console.WriteLine("Thank you for using this program"); 
         }
-    }
+
 
     public static void AddEntry()
     {
