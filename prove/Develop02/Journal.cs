@@ -5,57 +5,21 @@ using System.Collections.Generic;
 public class Journal
 {
     public List<Entry> _entries = new List<Entry>();
-    string userInput;
-    int select;
-
-    do
+    
+    public void AddEntry()
     {
-        Console.WriteLine("Please select one of the following choices: ");
-        Console.WriteLine("1. Write");
-        Console.WriteLine("2. Display");
-        Console.WriteLine("3. Load");
-        Console.WriteLine("4. Save");
-        Console.Writeline("5. Quit");
-        Console.Writeline("What would you like to do? ");
-        Console.Write("> ");
-        userInput = Console.ReadLine();
-        select = int.private Parse(userInput);
         
-        if (select == 1) 
-        {
-            AddEntry();
-        }
-        else if (number == 2)
-        {
-            Entry.Display();
-        }
-        else if (number == 3)
-        {
-            LoadFromFile();
-        }
-        else if (number == 4)
-        {
-            SaveToFile();
-        }
-        else
-        {
-            Console.WriteLine("Invalid Responce!")
-        }
-    } while (number != 5);
-        {
-            Console.WriteLine("Thank you for using this program"); 
-        }
-
-
-    static void AddEntry()
-    {
-        Entry();
+        public DateTime theCurrentTime = DateTime.Now;
+        public string _date = theCurrentTime.ToShortDateString();
+        public string _promptText = PromptGenerator.GetRandomPrompts();
+        public string _entryText;
+        Console.WriteLine($"{_promptText}");
+    _   entryText = Console.ReadLine();
+    _   entries.Add(_date);
+    _   entries.Add(_promptText);
+    _   entries.Add(_entryText);
     }
-    static void DisplayAll()
-    {
-        Entry.Display();
-    }
-    static void SaveToFile()
+    public void SaveToFile()
     {
         string fileName;
         Console.WriteLine("What is the filename?");
@@ -68,7 +32,7 @@ public class Journal
             }
         }
     }
-    static void LoadFromFile()
+    public void LoadFromFile()
     {
         string fileName;
         Console.WriteLine("What is the filename?");
