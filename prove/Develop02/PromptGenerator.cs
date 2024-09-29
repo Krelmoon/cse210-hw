@@ -10,7 +10,7 @@ public class PromptGenerator
     _prompts.Add("What was the strongest emotion I felt today?");
     _prompts.Add("If I had one thing I could do over today, what would it be?");
 
-    static string GetRandomPrompts()
+    private static string GetRandomPrompts()
     {
         var hs = new HashSet<int>();
         var seed = (int)DateTime.Now.Ticks;

@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class Journal
 {
     public List<Entry> _entries = new List<Entry>();
-    public string userInput;
-    public int number;
+    string userInput;
+    int select;
 
     do
     {
@@ -19,8 +19,9 @@ public class Journal
         Console.Writeline("What would you like to do? ");
         Console.Write("> ");
         userInput = Console.ReadLine();
-        number = int.Parse(userInput);
-        if (number == 1)
+        select = int.private Parse(userInput);
+        
+        if (select == 1) 
         {
             AddEntry();
         }
@@ -46,32 +47,32 @@ public class Journal
         }
 
 
-    public static void AddEntry()
+    static void AddEntry()
     {
         Entry();
     }
-    public static void DisplayAll()
+    static void DisplayAll()
     {
         Entry.Display();
     }
-    public static void SaveToFile()
+    static void SaveToFile()
     {
         string fileName;
-        Console.WriteLine("What is the filename?")
+        Console.WriteLine("What is the filename?");
         fileName = Console.ReadLine();
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
             foreach (Entry e in _entries)
             {
-            outputFile.WriteLine($""Date: {e._date}`~`- Prompt: {e._promptText}`~`{e._entryText}");
+            outputFile.WriteLine($"Date: {e._date}`~`- Prompt: {e._promptText}`~`{e._entryText}");
             }
         }
     }
-    public static void LoadFromFile()
+    static void LoadFromFile()
     {
         string fileName;
-        Console.WriteLine("What is the filename?")
-        filename = Console.ReadLine();
+        Console.WriteLine("What is the filename?");
+        fileName = Console.ReadLine();
         string[] _entries = System.IO.File.ReadAllLines(fileName);
 
         foreach (string line in _entries)
