@@ -45,20 +45,41 @@ public class Journal
         }
     }
 
-    static void AddEntry()
+    public static void AddEntry()
     {
         Entry();
     }
-    static void DisplayAll()
+    public static void DisplayAll()
     {
         Entry.Display();
     }
-    static void SaveToFile()
+    public static void SaveToFile()
     {
-
+        string fileName;
+        Console.WriteLine("What is the filename?")
+        fileName = Console.ReadLine();
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            foreach (Entry e in _entries)
+            {
+            outputFile.WriteLine($""Date: {e._date}`~`- Prompt: {e._promptText}`~`{e._entryText}");
+            }
+        }
     }
-    static void LoadFromFile()
+    public static void LoadFromFile()
     {
+        string fileName;
+        Console.WriteLine("What is the filename?")
+        filename = Console.ReadLine();
+        string[] _entries = System.IO.File.ReadAllLines(fileName);
 
+        foreach (string line in _entries)
+        {
+            string[] parts = line.Split("`~`");
+            
+            string _date = parts[0];
+            string _promptText = parts[1];
+            string _entryText = parts[2];
+        }
     }
 }
